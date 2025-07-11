@@ -270,6 +270,18 @@ export function YourComponent() {
 }`;
 
 export default function Home() {
+  interface Quote {
+    fee: {
+      amount: string;
+      rate: number;
+      decimals: number;
+    };
+    gas: {
+      amount: string;
+      l1: string;
+    };
+  }
+
   const {
     gelato: { client },
     logout,
@@ -402,7 +414,7 @@ export default function Home() {
     },
   ]);
   const [gasEstimationLoading, setGasEstimationLoading] = useState(false);
-  const [gasEstimationResult, setGasEstimationResult] = useState<unknown>(null);
+  const [gasEstimationResult, setGasEstimationResult] = useState<Quote | null>(null);
   const [gasEstimationError, setGasEstimationError] = useState<string>("");
   const [gasEstimationCodeCopied, setGasEstimationCodeCopied] = useState(false);
 
@@ -730,7 +742,7 @@ export default function Home() {
         calls
       );
 
-      setGasEstimationResult(result);
+      setGasEstimationResult(result as Quote);
     } catch (error) {
       console.error("Error estimating gas:", error);
       setGasEstimationError(

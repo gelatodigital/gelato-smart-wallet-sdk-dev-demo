@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart Wallet Demo
+
+A Next.js application demonstrating Gelato's Smart Wallet SDK capabilities. This demo showcases how to create and interact with different types of smart accounts and execute various transaction types.
+
+## Features
+
+- **Smart Account Creation**: Support for Gelato, Kernel, and Safe smart accounts
+- **Transaction Types**: Sponsored, ERC20 gas, and native gas transactions
+- **Gas Estimation**: Built-in gas estimation functionality
+- **Interactive UI**: Web interface for testing smart wallet operations
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with TypeScript
+- **Smart Wallet**: Gelato Smart Wallet SDK
+- **Blockchain**: Viem for Ethereum interactions
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
 
 ## Getting Started
 
-First, run the development server:
-
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Set up environment variables:
+```bash
+# Create .env.local file
+NEXT_PUBLIC_GELATO_API_KEY=your_gelato_api_key
+PRIVATE_KEY=your_private_key
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) to view the demo.
+
+## Smart Account Types
+
+- **Gelato**: Standard Gelato smart account
+- **Kernel**: Kernel smart account with EIP-7702 support
+- **Safe**: Safe smart account (version 1.4.1)
+
+## Transaction Types
+
+- **Sponsored**: Gasless transactions sponsored by Gelato
+- **ERC20 Gas**: Transactions paid with ERC20 tokens
+- **Native Gas**: Standard gas-paid transactions
+
+## Examples
+
+The project includes example implementations in `src/smartwallet-examples/`:
+- `create-smart-account.ts` - Smart account creation
+- `sponsored-txn.ts` - Sponsored transactions
+- `erc20-gas-txn.ts` - ERC20 gas transactions
+- `native-gas-txn.ts` - Native gas transactions
+- `estimate-gas.ts` - Gas estimation
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Gelato Smart Wallet Documentation](https://docs.gelato.cloud/Smart-Wallets)
+- [Next.js Documentation](https://nextjs.org/docs)
